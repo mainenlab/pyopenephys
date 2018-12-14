@@ -616,7 +616,7 @@ class Recording:
             events_folder = [op.join(self.absolute_foldername, f)
                                     for f in os.listdir(self.absolute_foldername) if 'events' in f][0]
             processor_folders = [op.join(events_folder, f) for f in os.listdir(events_folder)
-                                if 'Tracking_Port' not in f and 'Message_Center' not in f]
+                                if 'Tracking_Port' not in f and 'Message_Center' not in f and '.DS_Store' not in f]
             for processor_folder in processor_folders:
                 TTL_groups = [f for f in os.listdir(processor_folder) if 'TTL' in f]
                 for bg in TTL_groups:
