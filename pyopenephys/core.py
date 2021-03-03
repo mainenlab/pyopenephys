@@ -692,11 +692,11 @@ class Recording:
 
                 if len(contFiles) != 0:
                     print('Reading all channels')
-                    anas = np.array([])
+                    anas = np.array([], dtype=np.int16)
                     for i_f, f in enumerate(contFiles):
                         print(f)
                         fullpath = op.join(self.absolute_foldername, f)
-                        sig = loadContinuous(fullpath)
+                        sig = loadContinuous(fullpath, dtype=np.int16)
                         block_len = int(sig['header']['blockLength'])
                         sample_rate = float(sig['header']['sampleRate'])
                         if anas.shape[0] < 1:
